@@ -30,6 +30,8 @@ public class ODSReader {
                 //Iterating through each column
                 for(int nColIndex = 0; nColIndex < nColCount; nColIndex++)
                 {
+                    System.out.println("Rows :"+nRowIndex);
+                    System.out.println("Cols :"+nColIndex);
                     cell = spreadsheet.getSheet(0).getCellAt(nColIndex, nRowIndex);
                     System.out.print(cell.getValue()+ " ");
                 }
