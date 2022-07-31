@@ -11,8 +11,6 @@ import java.io.File;
             String content = ODSReader.read(file);
 
 
-            content = content.substring(content.indexOf("\tline"), content.lastIndexOf("line"));
-
             System.out.println(content);
         }
     }

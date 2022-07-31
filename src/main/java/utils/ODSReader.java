@@ -25,6 +25,14 @@ public class ODSReader {
         opendocumentparser.parse(inputstream, handler,
                 metadata,
                 parsecontent);
-        return handler.toString();
+        String content = handler.toString();
+        return leftOnlyRelevantData(content);
+    }
+
+    private static String leftOnlyRelevantData(String content){
+        content = content.substring(content.indexOf("\tline"), content.lastIndexOf("line"));
+        content = content.replaceAll("\t","");
+        content = content.trim();
+        return content;
     }
 }
