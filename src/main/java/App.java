@@ -1,8 +1,11 @@
+import db.BusStop;
 import utils.ODSReader;
+import utils.StringUtilities;
 
 import java.io.File;
+import java.util.List;
 
-    public class App {
+public class App {
         public static void main(String[] args) {
 
             String path = System.getProperty("user.dir") + "/src/main/resources/line/Example_A.ods";
@@ -12,5 +15,11 @@ import java.io.File;
 
 
             System.out.println(content);
+
+            List<List<String>> listOfLists = StringUtilities.createListOfLists(content);
+            String w = "w";
+
+            BusStop busStop = new BusStop("Grodzisk Dworzec", (short) 1);
+//            String
         }
     }
