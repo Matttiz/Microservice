@@ -12,17 +12,10 @@ public class App {
 //            String path = System.getProperty("user.dir") + "/src/main/resources/line/Example.ods";
             File file = new File(path);
             String content = ODSReader.read(file);
-
-
             System.out.println(content);
-
             List<List<String>> listOfLists = StringUtilities.createListOfLists(content);
-
             listOfLists.remove(0);
-
             Timetable timetable = new Timetable(listOfLists);
-
-
 
         }
     }
