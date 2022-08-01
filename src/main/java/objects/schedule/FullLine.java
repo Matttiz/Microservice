@@ -1,4 +1,4 @@
-package db;
+package objects.schedule;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package db;
+package objects.schedule;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,9 +8,9 @@ import lombok.Setter;
 public class Service {
 
     private int serviceNumber;
-    private int lineNumber;
+    private Line lineNumber;
 
-    public Service(int serviceNumber, int lineNumber) {
+    public Service(int serviceNumber, Line lineNumber) {
         this.serviceNumber = serviceNumber;
         this.lineNumber = lineNumber;
     }

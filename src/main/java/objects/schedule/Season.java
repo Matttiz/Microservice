@@ -1,16 +1,16 @@
-package db;
+package objects.schedule;
 
 import lombok.Getter;
 
 public enum Season {
-    SUMMER("summer"),
-    WINTER("winter");
+    SUMMER("SUMMER"),
+    WINTER("WINTER");
 
     @Getter
     private String season;
 
     Season(String season) {
-        this.season = season;
+        this.season = season.toUpperCase();
     }
 
 

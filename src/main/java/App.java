@@ -1,4 +1,4 @@
-import db.BusStop;
+import objects.schedule.Timetable;
 import utils.ODSReader;
 import utils.StringUtilities;
 
@@ -17,8 +17,12 @@ public class App {
             System.out.println(content);
 
             List<List<String>> listOfLists = StringUtilities.createListOfLists(content);
-            String w = "w";
 
-            BusStop busStop = new BusStop("Grodzisk Dworzec",1);
+            listOfLists.remove(0);
+
+            Timetable timetable = new Timetable(listOfLists);
+
+
+
         }
     }
