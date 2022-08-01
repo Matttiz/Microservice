@@ -19,7 +19,6 @@ public class App {
             List<List<String>> listOfLists = StringUtilities.createListOfLists(content);
             String w = "w";
 
-            BusStop busStop = new BusStop("Grodzisk Dworzec", (short) 1);
-//            String
+            BusStop busStop = new BusStop("Grodzisk Dworzec",1);
         }
     }

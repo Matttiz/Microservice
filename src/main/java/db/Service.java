@@ -3,11 +3,15 @@ package db;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
+@Setter
 public class Service {
-    @Getter
-    @Setter
+
     private int serviceNumber;
-    @Getter
-    @Setter
     private int lineNumber;
+
+    public Service(int serviceNumber, int lineNumber) {
+        this.serviceNumber = serviceNumber;
+        this.lineNumber = lineNumber;
+    }
 }

@@ -2,11 +2,7 @@ package utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class StringUtilities {
 
@@ -16,6 +12,7 @@ public class StringUtilities {
         List<String> list = Arrays.stream(content.split("\n")).toList();
         List<String> row = new ArrayList<>();
         for(String line : list){
+            System.out.println(line);
             if(!line.isEmpty()){
                 row.add(line);
             }else{

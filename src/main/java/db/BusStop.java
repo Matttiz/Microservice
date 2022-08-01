@@ -7,14 +7,11 @@ import lombok.Setter;
 @Setter
 public class BusStop {
 
-
     private String busStopName;
     private short numberBusStop;
 
-    public BusStop(String busStopName, short numberBusStop){
+    public BusStop(String busStopName, int numberBusStop){
         this.busStopName = busStopName;
-//        if(numberBusStop)
-        this.numberBusStop =  numberBusStop;
+        this.numberBusStop = (short) numberBusStop;
     }
-
 }
