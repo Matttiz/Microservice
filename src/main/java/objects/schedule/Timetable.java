@@ -9,6 +9,7 @@ import java.util.List;
 @Getter
 public class Timetable {
     private List<BusStopSchedule> busStopScheduleList = new ArrayList<>();
+    private List<FullLine> fullLineList = new ArrayList<>();
     private Line line;
 
     public Timetable(List<List<String>> listOfLists){
@@ -28,5 +29,11 @@ public class Timetable {
                 busStopScheduleList.get(0).getBusStop(),
                 busStopScheduleList.get(busStopScheduleList.size() - 1).getBusStop()
         );
+        int index = 1;
+        for(BusStopSchedule busStopSchedule : busStopScheduleList){
+            busStop = busStopSchedule.getBusStop();
+            this.fullLineList.add(new FullLine(this.line, busStop, index));
+            index++;
+        }
     }
 }
