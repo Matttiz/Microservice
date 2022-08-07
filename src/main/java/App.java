@@ -14,7 +14,6 @@ public class App {
             String content = ODSReader.read(file);
             System.out.println(content);
             List<List<String>> listOfLists = StringUtilities.createListOfLists(content);
-            listOfLists.remove(0);
             Timetable timetable = new Timetable(listOfLists);
 
         }
