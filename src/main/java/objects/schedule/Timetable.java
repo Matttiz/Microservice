@@ -1,7 +1,7 @@
 package objects.schedule;
 
 import lombok.Getter;
-import lombok.Setter;
+import lombok.SneakyThrows;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,11 @@ public class Timetable {
     private List<FullLine> fullLineList = new ArrayList<>();
     private Line line;
 
+    @SneakyThrows
     public Timetable(List<List<String>> listOfLists){
+        if (listOfLists == null || listOfLists.isEmpty()){
+            throw new IllegalArgumentException("ListOfLists can't be empty or null");
+        }
         BusStop busStop;
         Schedule schedule;
         for (List<String> list : listOfLists){

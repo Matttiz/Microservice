@@ -16,21 +16,28 @@ public class ODSReader {
         BodyContentHandler handler
                 = new BodyContentHandler();
         Metadata metadata = new Metadata();
-        FileInputStream inputstream
+        FileInputStream inputStream
                 = new FileInputStream(
                 file);
-        ParseContext parsecontent = new ParseContext();
+        ParseContext parseContent = new ParseContext();
         OpenDocumentParser opendocumentparser
                 = new OpenDocumentParser();
-        opendocumentparser.parse(inputstream, handler,
+        opendocumentparser.parse(inputStream, handler,
                 metadata,
-                parsecontent);
+                parseContent);
         String content = handler.toString();
         return leftOnlyRelevantData(content);
     }
 
     private static String leftOnlyRelevantData(String content){
-        content = content.substring(content.indexOf("\tline"), content.lastIndexOf("line"));
+        content = content.replaceAll("[?]{3}\nStrona \n", "");
+        String startHeaderLine = "\tline";
+        String endHeaderLine = "service\n";
+        String header = content.substring(
+                content.indexOf(startHeaderLine),
+                content.indexOf(endHeaderLine) + endHeaderLine.length()
+        );
+        content = content.replaceAll(header, "");
         content = content.replaceAll("\t","");
         content = content.trim();
         return content;
