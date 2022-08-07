@@ -18,8 +18,8 @@ public class Schedule {
     private boolean isHoliday;
     private boolean isOnDemand;
     private Season season;
-
-    public Schedule(String time, boolean isHoliday, boolean isOnDemand, String season) {
+    private int serviceNumber;
+    public Schedule(String time, boolean isHoliday, boolean isOnDemand, String season, int serviceNumber) {
         Matcher matcher = pattern.matcher(time);
         if(!matcher.find()){
             throw new IllegalArgumentException("Time should have format HH:MM.!");
@@ -29,5 +29,6 @@ public class Schedule {
         this.isHoliday = isHoliday;
         this.isOnDemand = isOnDemand;
         this.season = Season.valueOf(season.toUpperCase());
+        this.serviceNumber = serviceNumber;
     }
 }

@@ -40,6 +40,7 @@ public class ODSReader {
         content = content.replaceAll(header, "");
         content = content.replaceAll("\t","");
         content = content.trim();
+        content = content.substring(0, content.indexOf("\nline\n"));
         return content;
     }
 }

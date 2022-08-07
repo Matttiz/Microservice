@@ -5,6 +5,7 @@ import lombok.SneakyThrows;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 public class Timetable {
@@ -25,7 +26,9 @@ public class Timetable {
                     list.get(4),
                     Boolean.parseBoolean(list.get(6)),
                     Boolean.parseBoolean(list.get(3)),
-                    list.get(5));
+                    list.get(5),
+                    Integer.parseInt(list.get(7))
+            );
             this.busStopScheduleList.add(new BusStopSchedule(busStop, schedule));
         }
         this.line = new Line(
@@ -39,5 +42,17 @@ public class Timetable {
             this.fullLineList.add(new FullLine(this.line, busStop, index));
             index++;
         }
+    }
+
+    public static List<Timetable> getListOfTimetables(List<List<String>> listOfLists){
+        List<Timetable> result = new ArrayList<>();
+        List<Integer> serviceList = listOfLists.stream().map(list -> Integer.parseInt(list.get(7))).distinct().collect(Collectors.toList());
+        List<List<String>> listForTimetables = new ArrayList<>();
+        for(int service : serviceList) {
+            listForTimetables = listOfLists.stream().filter(list -> Integer.parseInt(list.get(7)) == service).collect(Collectors.toList());
+            Timetable timetable = new Timetable(listForTimetables);
+            result.add(timetable);
+        }
+        return result;
     }
 }
