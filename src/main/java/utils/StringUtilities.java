@@ -12,7 +12,6 @@ public class StringUtilities {
         List<String> list = Arrays.stream(content.split("\n")).toList();
         List<String> row = new ArrayList<>();
         for(String line : list){
-            System.out.println(line);
             if(!line.isEmpty()){
                 row.add(line);
             }else{
