@@ -26,6 +26,9 @@ public class ODSReader {
                 metadata,
                 parseContent);
         String content = handler.toString();
+        if(content == null || content.isEmpty() || content.isBlank()) {
+            throw new IllegalArgumentException("File shouldn't be empty. " + file.getPath());
+        }
         return leftOnlyRelevantData(content);
     }
 
