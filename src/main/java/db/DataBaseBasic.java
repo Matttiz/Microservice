@@ -10,7 +10,6 @@ public class DataBaseBasic {
     private static final Properties properties = PropertiesManager.propertiesManager.getProperties();
     private Connection connection = null;
     private Statement statement = null;
-
     private String query = null;
 
     @SneakyThrows
