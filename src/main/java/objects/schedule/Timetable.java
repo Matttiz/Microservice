@@ -46,7 +46,7 @@ public class Timetable {
 
     public static List<Timetable> getListOfTimetables(List<List<String>> listOfLists){
         List<Timetable> result = new ArrayList<>();
-        List<Integer> serviceList = listOfLists.stream().map(list -> Integer.parseInt(list.get(7))).distinct().collect(Collectors.toList());
+        List<Integer> serviceList = listOfLists.stream().map(list -> Integer.parseInt(list.get(7))).distinct().toList();
         List<List<String>> listForTimetables;
         for(int service : serviceList) {
             listForTimetables = listOfLists.stream().filter(list -> Integer.parseInt(list.get(7)) == service).collect(Collectors.toList());
