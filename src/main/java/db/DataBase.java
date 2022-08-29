@@ -12,8 +12,13 @@ public class DataBase extends DataBaseBasic{
     public void insertIntoDB(Timetable timetable){
 
         List<BusStopSchedule> busStopScheduleList = timetable.getBusStopScheduleList();
-        busStopScheduleList.get(0).getBusStop();
-        busStopScheduleList.get(0).getSchedule();
+        BusStop busStop = new BusStop();
+        Schedule schedule = new Schedule();
+        Line line = timetable.getLine();
+        for(BusStopSchedule busStopSchedule: busStopScheduleList) {
+            busStop = busStopSchedule.getBusStop();
+            schedule = busStopSchedule.getSchedule();
+        }
 
 
 

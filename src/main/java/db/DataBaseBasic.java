@@ -45,6 +45,12 @@ public class DataBaseBasic {
     }
 
     @SneakyThrows
+    public boolean isResultsExistExecuteQuery(){
+        List<Map<String, Object>> resultMap = executeQuery();
+        return !resultMap.isEmpty();
+    }
+
+    @SneakyThrows
     public void closeConnection(){
         this.statement.close();
         this.connection.close();
